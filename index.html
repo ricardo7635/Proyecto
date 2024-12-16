@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{%block title%}Juegos Uaemex{%endblock%}
+{%block content%}
+<div class="text-box">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="succes">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h1>Juegos Universidad Autonoma del Estado de Mexico 2024</h1>
+    <p>Los Juegos Uaemex son el evento más grande de nuestra universidad, 
+        donde estudiantes y deportistas de diversas disciplinas compiten 
+        para demostrar su talento y espíritu deportivo. ¡Ven a ser parte de esta 
+        fiesta deportiva</p>
+</div>
+{%endblock%}

@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%block title%}Juegos Uaemex{%endblock%}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/fotos.css')}}">
+{% endblock %}
+{%block content%}
+{%for hincha in hinchas%}
+<div class="centered">
+    <h1 class="centered">Hincha {{hincha.nombre}}</h1>
+</div>
+<div class="info">
+    <div class="left-info">
+        <p class="text-large">Region: {{hincha.region}}</p>
+        <p class="text-large">Comuna: {{hincha.comuna}}</p>
+        <p class="text-large">Tipo: {{hincha.sports}}</p>
+        {%if hincha.telefono == ''%}
+        <p class="text-large">Telefono: No brinda telefono</p>
+        {%elif hincha.telefono is not none%}
+        <p class="text-large">Telefono: {{hincha.telefono}}</p>
+        {%endif%}
+        <p class="text-large">Correo: {{hincha.email}}</p>
+        {%if hincha.descripcion == ''%}
+        <p class="text-large">Descripcion: No brinda comentario</p>
+        {%elif hincha.descripcion is not none%}
+        <p class="text-large">Comentario: {{hincha.descripcion}}</p>
+        {%endif%}
+      </div>
+</div>
+<div class="centered">
+    <button type="button" onclick="window.location='/ver-hinchas';">Volver a Hinchas</button>
+</div>
+{%endfor%}
+{%endblock%}
